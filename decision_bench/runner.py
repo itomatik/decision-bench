@@ -85,6 +85,9 @@ def frozen_config(model, cases, all_cases, manifest, api_model=None):
     elif model["provider"] == "kev":
         from .kev import endpoint
         cfg["endpoint_id"] = openai_compat.endpoint_id(endpoint())
+    elif model["provider"] == "drex":
+        from .drex import endpoint
+        cfg["endpoint_id"] = openai_compat.endpoint_id(endpoint())
     elif model["provider"] == "laya":
         cfg["endpoint_id"] = openai_compat.endpoint_id(adapters.laya_endpoint())
     elif model["provider"] == "openrouter-decisions":
@@ -140,6 +143,10 @@ def preflight(model):
     elif provider == "kev":
         from .kev import endpoint, api_key
         api_key(endpoint())
+    elif provider == "drex":
+        from .drex import endpoint, api_key
+        endpoint()
+        api_key()
     elif provider == "laya":
         adapters.laya_key(adapters.laya_endpoint())
     elif provider in ("claude-cli", "codex-cli"):
