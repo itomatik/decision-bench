@@ -102,9 +102,10 @@ logs/
 .env.*
 !.env.example
 .claude/*
+!.claude/skills/
+.claude/skills/*
+!.claude/skills/review-provider-pr/
 .codex/
-/AGENTS.md
-/CLAUDE.md
 
 # Python and tooling
 __pycache__/
